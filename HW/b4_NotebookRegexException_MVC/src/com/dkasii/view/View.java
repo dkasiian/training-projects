@@ -1,5 +1,8 @@
 package com.dkasii.view;
 
+import com.dkasii.model.entity.Notebook;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -31,6 +34,14 @@ public class View {
         printMessage(concatMessages(
                 bundle.getString(INPUT_STRING_DATA),
                 bundle.getString(message)));
+    }
+
+    public void printNotesFromNotebooks(List<Notebook> notebooks){
+        if (notebooks != null){
+            for (Notebook notebook : notebooks){
+                System.out.println(notebook);
+            }
+        }
     }
 
     public void printWrongStringInput() {

@@ -1,4 +1,4 @@
-package com.dkasii.model;
+package com.dkasii.model.entity;
 
 public enum NotebookDatabase {
     User1("Дмитро",
@@ -23,7 +23,7 @@ public enum NotebookDatabase {
             "380506785426",
             "okalinich@gmail.com");
 
-    private String name, surname, patronymic, nickname, homePhone, mobilePhone, email;
+    private final String name, surname, patronymic, nickname, homePhone, mobilePhone, email;
 
     NotebookDatabase(String name, String surname, String patronymic, String nickname,
                      String homePhone, String mobilePhone, String email){

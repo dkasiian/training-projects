@@ -10,5 +10,4 @@ public interface ViewConstants {
     String MOBILEPHONE_DATA = "input.mobilephone.data";
     String EMAIL_DATA = "input.email.data";
     String WRONG_INPUT_DATA = "input.wrong.data";
-    String SUCCESS_DATA = "Всі дані введено коректно!";
 }

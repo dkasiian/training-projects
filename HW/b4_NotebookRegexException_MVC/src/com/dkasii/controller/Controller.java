@@ -1,11 +1,11 @@
 package com.dkasii.controller;
 
 import com.dkasii.model.Model;
+import com.dkasii.model.entity.Notebook;
 import com.dkasii.view.View;
 
 import java.io.*;
-
-import static com.dkasii.view.ViewConstants.SUCCESS_DATA;
+import java.util.List;
 
 /**
  * Class that process all the business logic and incoming requests,
@@ -26,10 +26,10 @@ public class Controller {
 
     public void processUser() {
 
-        InputNotebook inputNoteNoteBook = new InputNotebook(view, model, br);
-        inputNoteNoteBook.inputNote();
+        InputNotebook inputNoteBook = new InputNotebook(view, model, br);
+        inputNoteBook.inputNote();
 
-        view.printMessage(SUCCESS_DATA);
+        List<Notebook> notebooks = model.getNotebooks();
+        view.printNotesFromNotebooks(notebooks);
     }
-
 }

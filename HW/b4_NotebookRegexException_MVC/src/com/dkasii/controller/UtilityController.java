@@ -1,8 +1,8 @@
 package com.dkasii.controller;
 
 import com.dkasii.model.Model;
-import com.dkasii.model.NicknameException;
-import com.dkasii.model.Notebook;
+import com.dkasii.model.entity.NotUniqueNicknameException;
+import com.dkasii.model.entity.Notebook;
 import com.dkasii.view.View;
 
 import java.io.BufferedReader;
@@ -66,7 +66,7 @@ public class UtilityController {
                         email);
                 this.model.addNewNotebook(notebook);
                 break;
-            } catch (NicknameException e) {
+            } catch (NotUniqueNicknameException e) {
                 System.out.println(e.getMessage());
                 nickname = inputAndValidate(NICKNAME_DATA, REGEX_NICKNAME, br);
             }

@@ -1,5 +1,7 @@
 package com.dkasii.model;
 
+import com.dkasii.model.entity.Notebook;
+
 import java.util.ArrayList;
 import java.util.List;
 
