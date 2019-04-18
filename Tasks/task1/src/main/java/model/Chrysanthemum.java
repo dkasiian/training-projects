@@ -1,11 +1,13 @@
 package model;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 public class Chrysanthemum extends Flower {
 
-    public Chrysanthemum(LocalDate recency, float stemLength, float price) {
-        super(recency, stemLength, price);
+    private final static String name = "Chrysanthemum";
+
+    public Chrysanthemum(Recency recency, float stemLength, BigDecimal price) {
+        super(name, recency, stemLength, price);
     }
 
 }

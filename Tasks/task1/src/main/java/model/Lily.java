@@ -1,9 +1,11 @@
 package model;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 public class Lily extends Flower {
-    public Lily(LocalDate recency, float stemLength, float price) {
-        super(recency, stemLength, price);
+    private final static String name = "Lily";
+
+    public Lily(Recency recency, float stemLength, BigDecimal price) {
+        super(name, recency, stemLength, price);
     }
 }

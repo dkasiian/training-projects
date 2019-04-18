@@ -1,25 +1,23 @@
 package model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Bouquet {
-    private List<Flower> flowers;
+    private ArrayList<Flower> flowers;
+    private BigDecimal bouquetPrice;
 
     public  Bouquet(){
         flowers = new ArrayList<>();
+        bouquetPrice = BigDecimal.ZERO;
     }
 
     public void addFlower(Flower flower){
         flowers.add(flower);
+        bouquetPrice = bouquetPrice.add(flower.getPrice());
     }
 
-    public float calculatePrice(){
-        float bouquetPrice = 0;
-        for (Flower flower : flowers){
-            bouquetPrice += flower.getPrice();
-        }
-        return  bouquetPrice;
+    public BigDecimal getBouquetPrice() {
+        return bouquetPrice;
     }
-
 }
