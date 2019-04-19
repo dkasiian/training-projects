@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 public class Lily extends Flower {
     private final static String name = "Lily";
 
-    public Lily(Color color, Recency recency, float stemLength, BigDecimal price) {
+    public Lily(Color color, Recency recency, double stemLength, BigDecimal price) {
         super(name, color, recency, stemLength, price);
     }
 }

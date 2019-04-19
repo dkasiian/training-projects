@@ -1,13 +1,11 @@
 package controller;
 
-import model.characteristics.Accessory;
-import model.characteristics.Color;
-import model.characteristics.Recency;
+import model.BouquetFactory;
+import model.characteristics.*;
 import model.entities.Bouquet;
 import model.entities.Flower;
-import model.flowers.Chrysanthemum;
-import model.flowers.Lily;
-import model.flowers.Tulip;
+import model.entities.PreparedBouquet;
+import model.flowers.*;
 import view.View;
 
 import java.math.BigDecimal;
@@ -22,23 +20,41 @@ public class Controller {
     }
 
     public void process(){
-        Bouquet bouquet = new Bouquet();
+        // Creating new bouquets
+        Bouquet lilyDefaultBouquet = BouquetFactory.createDefaultBouquet(PreparedBouquet.LILY_BOUQUET);
 
-        bouquet.addFlower(new Lily(Color.WHITE, Recency.NEW, 10, BigDecimal.valueOf(10)));
-        bouquet.addFlower(new Tulip(Color.RED, Recency.FADED, 5, BigDecimal.valueOf(0.5)));
-        bouquet.addFlower(new Tulip(Color.ORANGE, Recency.RECENT, 8, BigDecimal.valueOf(25.5)));
-        bouquet.addFlower(new Chrysanthemum(Color.BLUE, Recency.SHRUNKEN, 12, BigDecimal.valueOf(15.8)));
+        Bouquet compoundedBouquet = BouquetFactory.createBouquet(
+                new Lily(Color.WHITE, Recency.NEW, 10, BigDecimal.valueOf(10)),
+                new Tulip(Color.RED, Recency.FADED, 5, BigDecimal.valueOf(0.5)),
+                new Tulip(Color.ORANGE, Recency.RECENT, 8, BigDecimal.valueOf(25.5)),
+                new Chrysanthemum(Color.BLUE, Recency.SHRUNKEN, 12, BigDecimal.valueOf(15.8))
+        );
 
-        bouquet.addAccessory(Accessory.PACKAGING);
-        bouquet.addAccessory(Accessory.POT);
+        // Adding accessories to bouquets
+        lilyDefaultBouquet.addAccessory(Accessory.TAPE);
+        lilyDefaultBouquet.addAccessory(Accessory.PACKAGING);
 
-        bouquet.displayBouquetFlowers();
-        bouquet.sortFlowersByRecency();
-        bouquet.displayBouquetFlowers();
+        compoundedBouquet.addAccessory(Accessory.POT);
 
-        ArrayList<Flower> flowersWithAdjustedStem = bouquet.findFlowersWithStemLengthBetween(7, 11);
-        bouquet.displayFlowers(flowersWithAdjustedStem);
+        // Displaying and sort bouquets by recency
+        lilyDefaultBouquet.displayBouquetFlowers();
+        lilyDefaultBouquet.sortFlowersByRecency();
+        lilyDefaultBouquet.displayBouquetFlowers();
 
-        view.printMessage(bouquet.getBouquetPrice().toString());
+        compoundedBouquet.displayBouquetFlowers();
+        compoundedBouquet.sortFlowersByRecency();
+        compoundedBouquet.displayBouquetFlowers();
+
+        // Selecting flowers with specified stem range
+        ArrayList<Flower> flowersWithAdjustedStem = lilyDefaultBouquet.findFlowersWithStemLengthBetween(7, 9);
+        lilyDefaultBouquet.displayFlowers(flowersWithAdjustedStem);
+
+        flowersWithAdjustedStem = compoundedBouquet.findFlowersWithStemLengthBetween(7, 11);
+        compoundedBouquet.displayFlowers(flowersWithAdjustedStem);
+
+        // Displaying bouquets' price
+        view.printMessage(lilyDefaultBouquet.getBouquetPrice().toString());
+
+        view.printMessage(compoundedBouquet.getBouquetPrice().toString());
     }
 }

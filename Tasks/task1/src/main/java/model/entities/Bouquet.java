@@ -55,20 +55,28 @@ public class Bouquet {
                 resultFlowers.add(flower);
             }
         }
-        return  resultFlowers;
+        return resultFlowers;
     }
 
     public void displayBouquetFlowers(){
         System.out.println("\n");
-        for (Flower flower : this.flowers){
-            System.out.println(flower);
+        if (this.flowers.size() != 0) {
+            for (Flower flower : this.flowers) {
+                System.out.println(flower);
+            }
+        } else {
+            System.out.println("There aren't flowers in bouquet.");
         }
     }
 
     public void displayFlowers(ArrayList<Flower> flowers){
         System.out.println("\n");
-        for (Flower flower : flowers){
-            System.out.println(flower);
+        if (flowers.size() != 0) {
+            for (Flower flower : flowers) {
+                System.out.println(flower);
+            }
+        } else {
+            System.out.println("There aren't flowers.");
         }
     }
 }

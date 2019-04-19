@@ -10,7 +10,7 @@ public class Chrysanthemum extends Flower {
 
     private final static String name = "Chrysanthemum";
 
-    public Chrysanthemum(Color color, Recency recency, float stemLength, BigDecimal price) {
+    public Chrysanthemum(Color color, Recency recency, double stemLength, BigDecimal price) {
         super(name, color, recency, stemLength, price);
     }
 
