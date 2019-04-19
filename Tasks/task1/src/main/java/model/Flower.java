@@ -1,11 +1,11 @@
 package model;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public abstract class Flower {
+import static java.time.temporal.ChronoUnit.DAYS;
+
+public abstract class Flower implements Comparable <Flower> {
     private final String name;
     private final Recency recency;
     private final double stemLength;
@@ -34,4 +34,18 @@ public abstract class Flower {
         return price;
     }
 
+    @Override
+    public int compareTo(Flower compareFlower){
+        LocalDate compareRecency = compareFlower.getRecency().getDate();
+        LocalDate thisRecency = this.getRecency().getDate();
+        return  (int) DAYS.between(thisRecency, compareRecency);
+    }
+
+    @Override
+    public String toString(){
+        return this.getName() + ", " +
+                this.getRecency() + ", " +
+                this.getStemLength() + ", " +
+                this.getPrice() + ".";
+    }
 }
