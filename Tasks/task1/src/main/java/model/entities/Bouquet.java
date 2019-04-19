@@ -1,11 +1,13 @@
-package model;
+package model.entities;
+
+import model.characteristics.Accessory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Bouquet {
     private ArrayList<Flower> flowers;
-    private ArrayList<Accessories> accessories;
+    private ArrayList<Accessory> accessories;
     private BigDecimal bouquetPrice;
 
     public  Bouquet(){
@@ -18,7 +20,7 @@ public class Bouquet {
         return flowers;
     }
 
-    public ArrayList<Accessories> getAccessories() {
+    public ArrayList<Accessory> getAccessories() {
         return accessories;
     }
 
@@ -31,7 +33,7 @@ public class Bouquet {
         bouquetPrice = bouquetPrice.add(flower.getPrice());
     }
 
-    public void addAccessory(Accessories accessory){
+    public void addAccessory(Accessory accessory){
         accessories.add(accessory);
         bouquetPrice = bouquetPrice.add(accessory.getAccessoriePrice());
     }

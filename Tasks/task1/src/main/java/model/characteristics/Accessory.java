@@ -1,15 +1,15 @@
-package model;
+package model.characteristics;
 
 import java.math.BigDecimal;
 
-public enum Accessories {
+public enum Accessory {
     PACKAGING(BigDecimal.valueOf(10)),
     TAPE(BigDecimal.valueOf(5)),
     POT(BigDecimal.valueOf(35));
 
     private BigDecimal accessoriePrice;
 
-    Accessories(BigDecimal accessoriePrice){
+    Accessory(BigDecimal accessoriePrice){
         this.accessoriePrice = accessoriePrice;
     }
 

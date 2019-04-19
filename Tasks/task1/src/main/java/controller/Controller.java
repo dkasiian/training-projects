@@ -1,6 +1,13 @@
 package controller;
 
-import model.*;
+import model.characteristics.Accessory;
+import model.characteristics.Color;
+import model.characteristics.Recency;
+import model.entities.Bouquet;
+import model.entities.Flower;
+import model.flowers.Chrysanthemum;
+import model.flowers.Lily;
+import model.flowers.Tulip;
 import view.View;
 
 import java.math.BigDecimal;
@@ -17,13 +24,13 @@ public class Controller {
     public void process(){
         Bouquet bouquet = new Bouquet();
 
-        bouquet.addFlower(new Lily(Recency.NEW, 10, BigDecimal.valueOf(10)));
-        bouquet.addFlower(new Tulip(Recency.FADED, 5, BigDecimal.valueOf(0.5)));
-        bouquet.addFlower(new Tulip(Recency.RECENT, 8, BigDecimal.valueOf(25.5)));
-        bouquet.addFlower(new Chrysanthemum(Recency.SHRUNKEN, 12, BigDecimal.valueOf(15.8)));
+        bouquet.addFlower(new Lily(Color.WHITE, Recency.NEW, 10, BigDecimal.valueOf(10)));
+        bouquet.addFlower(new Tulip(Color.RED, Recency.FADED, 5, BigDecimal.valueOf(0.5)));
+        bouquet.addFlower(new Tulip(Color.ORANGE, Recency.RECENT, 8, BigDecimal.valueOf(25.5)));
+        bouquet.addFlower(new Chrysanthemum(Color.BLUE, Recency.SHRUNKEN, 12, BigDecimal.valueOf(15.8)));
 
-        bouquet.addAccessory(Accessories.PACKAGING);
-        bouquet.addAccessory(Accessories.POT);
+        bouquet.addAccessory(Accessory.PACKAGING);
+        bouquet.addAccessory(Accessory.POT);
 
         bouquet.displayBouquetFlowers();
         bouquet.sortFlowersByRecency();

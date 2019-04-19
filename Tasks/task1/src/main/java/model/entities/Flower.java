@@ -1,4 +1,7 @@
-package model;
+package model.entities;
+
+import model.characteristics.Color;
+import model.characteristics.Recency;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -7,12 +10,14 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public abstract class Flower implements Comparable <Flower> {
     private final String name;
+    private final Color color;
     private final Recency recency;
     private final double stemLength;
     private final BigDecimal price;
 
-    public Flower(String name, Recency recency, double stemLength, BigDecimal price){
+    public Flower(String name, Color color, Recency recency, double stemLength, BigDecimal price){
         this.name = name;
+        this.color = color;
         this.recency = recency;
         this.stemLength = stemLength;
         this.price = price;
@@ -21,6 +26,8 @@ public abstract class Flower implements Comparable <Flower> {
     public String getName() {
         return name;
     }
+
+    public Color getColor() { return color; }
 
     public Recency getRecency() {
         return recency;
@@ -44,8 +51,10 @@ public abstract class Flower implements Comparable <Flower> {
     @Override
     public String toString(){
         return this.getName() + ", " +
+                this.getColor() + ", " +
                 this.getRecency() + ", " +
                 this.getStemLength() + ", " +
                 this.getPrice() + ".";
     }
+
 }
