@@ -7,13 +7,13 @@ public enum Accessory {
     TAPE(BigDecimal.valueOf(5)),
     POT(BigDecimal.valueOf(35));
 
-    private BigDecimal accessoriePrice;
+    private BigDecimal accessoryPrice;
 
-    Accessory(BigDecimal accessoriePrice){
-        this.accessoriePrice = accessoriePrice;
+    Accessory(BigDecimal accessoryPrice){
+        this.accessoryPrice = accessoryPrice;
     }
 
-    public BigDecimal getAccessoriePrice() {
-        return accessoriePrice;
+    public BigDecimal getAccessoryPrice() {
+        return accessoryPrice;
     }
 }

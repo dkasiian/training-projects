@@ -35,7 +35,7 @@ public class Bouquet {
 
     public void addAccessory(Accessory accessory){
         accessories.add(accessory);
-        bouquetPrice = bouquetPrice.add(accessory.getAccessoriePrice());
+        bouquetPrice = bouquetPrice.add(accessory.getAccessoryPrice());
     }
 
     public void sortFlowersByRecency(){

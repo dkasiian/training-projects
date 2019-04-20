@@ -1,25 +1,21 @@
 package model;
 
-import model.characteristics.Color;
-import model.characteristics.Recency;
 import model.entities.Flower;
 import model.entities.PreparedFlower;
 import model.flowers.*;
 
-import java.math.BigDecimal;
-
 public class FlowerFactory {
 
-    public static Flower createDefaultFlower(PreparedFlower preparedFlower){
-        switch (preparedFlower){
+    public static Flower createDefaultFlower(PreparedFlower flower){
+        switch (flower){
             case LILY:
-                return new Lily(Color.WHITE, Recency.RECENT, 10, BigDecimal.valueOf(10));
+                return new Lily(flower.getColor(), flower.getRecency(), flower.getStemLength(), flower.getPrice());
             case TULIP:
-                return new Tulip(Color.RED, Recency.RECENT, 8.5, BigDecimal.valueOf(12.5));
+                return new Tulip(flower.getColor(), flower.getRecency(), flower.getStemLength(), flower.getPrice());
             case CHRYSANTHEMUM:
-                return new Chrysanthemum(Color.BLUE, Recency.RECENT, 12, BigDecimal.valueOf(15.5));
+                return new Chrysanthemum(flower.getColor(), flower.getRecency(), flower.getStemLength(), flower.getPrice());
             default:
-                return new Lily(Color.WHITE, Recency.RECENT, 10, BigDecimal.valueOf(10));
+                return new Lily(flower.getColor(), flower.getRecency(), flower.getStemLength(), flower.getPrice());
         }
     }
 }

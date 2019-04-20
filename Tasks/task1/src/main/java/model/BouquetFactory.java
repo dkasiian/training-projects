@@ -22,6 +22,13 @@ public class BouquetFactory {
     public static Bouquet createDefaultBouquet(PreparedBouquet preparedBouquet) {
         Bouquet bouquet = new Bouquet();
         switch (preparedBouquet){
+            case DEFAULT_BOUQUET:
+                bouquet = BouquetFactory.createBouquet(
+                        FlowerFactory.createDefaultFlower(PreparedFlower.LILY),
+                        FlowerFactory.createDefaultFlower(PreparedFlower.TULIP),
+                        FlowerFactory.createDefaultFlower(PreparedFlower.CHRYSANTHEMUM)
+                );
+                break;
             case LILY_BOUQUET:
                 bouquet = BouquetFactory.createBouquet(
 //                        new Lily(Color.WHITE, Recency.RECENT, 10, BigDecimal.valueOf(10)),
