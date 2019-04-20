@@ -35,15 +35,17 @@ public class Bouquet {
 
     public void addAccessory(Accessory accessory){
         accessories.add(accessory);
-        bouquetPrice = bouquetPrice.add(accessory.getAccessoryPrice());
+        bouquetPrice = bouquetPrice.add(accessory.getPrice());
     }
 
     public void sortFlowersByRecency(){
         for (int i = 0; i < flowers.size() - 1; i++){
-            if (flowers.get(i).compareTo(flowers.get(i+1)) > 0){
-                Flower temp = flowers.get(i);
-                flowers.set(i, flowers.get(i + 1));
-                flowers.set(i + 1, temp);
+            for (int j = i + 1; j < flowers.size(); j++) {
+                if (flowers.get(i).compareTo(flowers.get(j)) > 0) {
+                    Flower temp = flowers.get(i);
+                    flowers.set(i, flowers.get(j));
+                    flowers.set(j, temp);
+                }
             }
         }
     }

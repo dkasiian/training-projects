@@ -1,14 +1,8 @@
 package model;
 
-import model.characteristics.Color;
-import model.characteristics.Recency;
-import model.entities.Bouquet;
-import model.entities.Flower;
-import model.entities.PreparedBouquet;
-import model.entities.PreparedFlower;
-import model.flowers.*;
+import model.entities.*;
 
-import java.math.BigDecimal;
+import static model.entities.PreparedFlower.*;
 
 public class BouquetFactory {
     public static Bouquet createBouquet(Flower ... flowers) {
@@ -24,33 +18,30 @@ public class BouquetFactory {
         switch (preparedBouquet){
             case DEFAULT_BOUQUET:
                 bouquet = BouquetFactory.createBouquet(
-                        FlowerFactory.createDefaultFlower(PreparedFlower.LILY),
-                        FlowerFactory.createDefaultFlower(PreparedFlower.TULIP),
-                        FlowerFactory.createDefaultFlower(PreparedFlower.CHRYSANTHEMUM)
+                        FlowerFactory.createDefaultFlower(LILY),
+                        FlowerFactory.createDefaultFlower(TULIP),
+                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM)
                 );
                 break;
             case LILY_BOUQUET:
                 bouquet = BouquetFactory.createBouquet(
-//                        new Lily(Color.WHITE, Recency.RECENT, 10, BigDecimal.valueOf(10)),
-//                        new Lily(Color.WHITE, Recency.RECENT, 10, BigDecimal.valueOf(10)),
-//                        new Lily(Color.WHITE, Recency.RECENT, 10, BigDecimal.valueOf(10))
-                        FlowerFactory.createDefaultFlower(PreparedFlower.LILY),
-                        FlowerFactory.createDefaultFlower(PreparedFlower.LILY),
-                        FlowerFactory.createDefaultFlower(PreparedFlower.LILY)
+                        FlowerFactory.createDefaultFlower(LILY),
+                        FlowerFactory.createDefaultFlower(LILY),
+                        FlowerFactory.createDefaultFlower(LILY)
                 );
                 break;
             case CHRYSANTHEMUM_BOUQUET:
                 bouquet = BouquetFactory.createBouquet(
-                        new Chrysanthemum(Color.BLUE, Recency.RECENT, 12, BigDecimal.valueOf(15.5)),
-                        new Chrysanthemum(Color.BLUE, Recency.RECENT, 12, BigDecimal.valueOf(15.5)),
-                        new Chrysanthemum(Color.BLUE, Recency.RECENT, 12, BigDecimal.valueOf(15.5))
+                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM),
+                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM),
+                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM)
                 );
                 break;
             case TULIP_BOUQUET:
                 bouquet = BouquetFactory.createBouquet(
-                        new Tulip(Color.RED, Recency.RECENT, 8.5, BigDecimal.valueOf(12.5)),
-                        new Tulip(Color.RED, Recency.RECENT, 8.5, BigDecimal.valueOf(12.5)),
-                        new Tulip(Color.RED, Recency.RECENT, 8.5, BigDecimal.valueOf(12.5))
+                        FlowerFactory.createDefaultFlower(TULIP),
+                        FlowerFactory.createDefaultFlower(TULIP),
+                        FlowerFactory.createDefaultFlower(TULIP)
                 );
         }
         return bouquet;

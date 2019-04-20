@@ -2,8 +2,13 @@ package view;
 
 public interface MessageConstants {
     String BOUQUET_PRICE = "bouquet.price";
+    String BOUQUET_SORT = "bouquet.sort";
+    String BOUQUET_STEM = "bouquet.stem";
+    String BOUQUET_FLOWERS_EMPTY = "bouquet.flowers.empty";
+    String BOUQUET_ACCESSORIES_EMPTY = "bouquet.accessories.empty";
 
     String INPUT_MAKE = "input.make.choice";
+    String INPUT_MAKE_ACCESSORIES = "input.make.accessories";
     String INPUT_WRONG_CHOICE = "input.wrong.choice";
     String INPUT0_FINISH = "input.finish.choice";
 

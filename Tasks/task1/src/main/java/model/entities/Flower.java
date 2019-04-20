@@ -5,8 +5,7 @@ import model.characteristics.Recency;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import static java.time.temporal.ChronoUnit.DAYS;
+import java.time.Period;
 
 public abstract class Flower implements Comparable <Flower> {
     private final String name;
@@ -45,7 +44,8 @@ public abstract class Flower implements Comparable <Flower> {
     public int compareTo(Flower compareFlower){
         LocalDate compareRecency = compareFlower.getRecency().getDate();
         LocalDate thisRecency = this.getRecency().getDate();
-        return  (int) DAYS.between(thisRecency, compareRecency);
+        int diff = Period.between(thisRecency, compareRecency).getDays();
+        return diff;
     }
 
     @Override

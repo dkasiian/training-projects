@@ -3,17 +3,24 @@ package model.characteristics;
 import java.math.BigDecimal;
 
 public enum Accessory {
-    PACKAGING(BigDecimal.valueOf(10)),
-    TAPE(BigDecimal.valueOf(5)),
-    POT(BigDecimal.valueOf(35));
+    PACKAGING("Packaging", BigDecimal.valueOf(10)),
+    TAPE("Tape", BigDecimal.valueOf(5)),
+    POT("Pot", BigDecimal.valueOf(35));
 
-    private BigDecimal accessoryPrice;
+    private final String name;
+    private final BigDecimal price;
 
-    Accessory(BigDecimal accessoryPrice){
-        this.accessoryPrice = accessoryPrice;
+    Accessory(String name, BigDecimal accessoryPrice){
+        this.name = name;
+        this.price = accessoryPrice;
     }
 
-    public BigDecimal getAccessoryPrice() {
-        return accessoryPrice;
+    public String getName() {
+        return name;
     }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
 }

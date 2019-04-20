@@ -2,12 +2,14 @@ package controller;
 
 import model.BouquetFactory;
 import model.FlowerFactory;
-import model.characteristics.*;
 import model.entities.*;
 import view.View;
 
 import java.util.Scanner;
 
+import static model.characteristics.Accessory.*;
+import static model.entities.PreparedBouquet.*;
+import static model.entities.PreparedFlower.*;
 import static view.MessageConstants.*;
 
 public class InputUtilityController {
@@ -22,8 +24,6 @@ public class InputUtilityController {
 
     public Bouquet makeBouquet(){
         Bouquet bouquet = new Bouquet();
-        boolean isRun = true;
-
 
         view.printMessages(
                 INPUT_MAKE,
@@ -32,30 +32,31 @@ public class InputUtilityController {
                 INPUT3_DEF_TULIPS_BOUQUET,
                 INPUT4_DEF_CHRYSANT_BOUQUET,
                 INPUT5_UNIQUE_BOUQUET,
-                INPUT6_ACCESSORIES,
                 INPUT0_FINISH
         );
 
         int choice = scanner.nextInt();
         switch (choice){
             case 1:
-                bouquet = BouquetFactory.createDefaultBouquet(PreparedBouquet.DEFAULT_BOUQUET); break;
+                bouquet = BouquetFactory.createDefaultBouquet(DEFAULT_BOUQUET);
+                addAccessories(bouquet); break;
             case 2:
-                bouquet = BouquetFactory.createDefaultBouquet(PreparedBouquet.LILY_BOUQUET); break;
+                bouquet = BouquetFactory.createDefaultBouquet(LILY_BOUQUET);
+                addAccessories(bouquet); break;
             case 3:
-                bouquet = BouquetFactory.createDefaultBouquet(PreparedBouquet.TULIP_BOUQUET); break;
+                bouquet = BouquetFactory.createDefaultBouquet(TULIP_BOUQUET);
+                addAccessories(bouquet); break;
             case 4:
-                bouquet = BouquetFactory.createDefaultBouquet(PreparedBouquet.CHRYSANTHEMUM_BOUQUET); break;
+                bouquet = BouquetFactory.createDefaultBouquet(CHRYSANTHEMUM_BOUQUET);
+                addAccessories(bouquet); break;
             case 5:
-                bouquet = makeUniqueBouquet(); break;
-            case 6:
+                bouquet = makeUniqueBouquet();
                 addAccessories(bouquet); break;
             case 0:
-                isRun = false; break;
+                break;
             default:
                 view.printMessage(INPUT_WRONG_CHOICE); break;
         }
-
         return bouquet;
     }
 
@@ -75,11 +76,11 @@ public class InputUtilityController {
             int choice = scanner.nextInt();
             switch (choice){
                 case 1:
-                    bouquet.addFlower(FlowerFactory.createDefaultFlower(PreparedFlower.LILY)); break;
+                    bouquet.addFlower(FlowerFactory.createDefaultFlower(LILY)); break;
                 case 2:
-                    bouquet.addFlower(FlowerFactory.createDefaultFlower(PreparedFlower.TULIP)); break;
+                    bouquet.addFlower(FlowerFactory.createDefaultFlower(TULIP)); break;
                 case 3:
-                    bouquet.addFlower(FlowerFactory.createDefaultFlower(PreparedFlower.CHRYSANTHEMUM)); break;
+                    bouquet.addFlower(FlowerFactory.createDefaultFlower(CHRYSANTHEMUM)); break;
                 case 0:
                     isRun = false; break;
                 default:
@@ -94,7 +95,7 @@ public class InputUtilityController {
 
         while (isRun){
             view.printMessages(
-                    INPUT_MAKE,
+                    INPUT_MAKE_ACCESSORIES,
                     INPUT1_ADD_TAPE,
                     INPUT2_ADD_PACK,
                     INPUT3_ADD_POT,
@@ -104,11 +105,11 @@ public class InputUtilityController {
             int choice = scanner.nextInt();
             switch (choice){
                 case 1:
-                    bouquet.addAccessory(Accessory.TAPE); break;
+                    bouquet.addAccessory(TAPE); break;
                 case 2:
-                    bouquet.addAccessory(Accessory.PACKAGING); break;
+                    bouquet.addAccessory(PACKAGING); break;
                 case 3:
-                    bouquet.addAccessory(Accessory.POT); break;
+                    bouquet.addAccessory(POT); break;
                 case 0:
                     isRun = false; break;
                 default:

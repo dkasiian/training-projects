@@ -5,8 +5,7 @@ import java.time.LocalDate;
 public enum Recency {
     NEW(LocalDate.now()),
     RECENT(LocalDate.now().minusDays(3)),
-    SHRUNKEN(LocalDate.now().minusWeeks(1)),
-    FADED(LocalDate.now().minusWeeks(2));
+    FADED(LocalDate.now().minusWeeks(1));
 
     private LocalDate date;
 

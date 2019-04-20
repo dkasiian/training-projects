@@ -1,13 +1,15 @@
 package view;
 
+import model.characteristics.Accessory;
 import model.entities.Bouquet;
 import model.entities.Flower;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import static view.MessageConstants.BOUQUET_PRICE;
+import static view.MessageConstants.*;
 
 public class View {
 
@@ -17,15 +19,8 @@ public class View {
             //new Locale("ua", "UA"));   // Ukrainian
             new Locale("en"));        // English
 
-//    private String concatenationString(String ... messages){
-//        StringBuilder concatString = new StringBuilder();
-//        for(String v : messages)
-//            concatString = concatString.append(v);
-//        return new String(concatString);
-//    }
-
     public void printMessage(String message){
-        System.out.println("\n" + bundle.getString(message));
+        System.out.println(bundle.getString(message));
     }
 
     public void printMessages(String ... messages){
@@ -33,29 +28,56 @@ public class View {
             System.out.println(bundle.getString(message));
     }
 
-    public void printBouquetFlowers(Bouquet bouquet){
-        System.out.println("\n");
-        if (bouquet.getFlowers().size() != 0) {
-            for (Flower flower : bouquet.getFlowers()) {
-                System.out.println(flower);
-            }
-        } else {
-            System.out.println("There aren't flowers.");
-        }
-    }
+    public void printBouquetFlowers(ArrayList<Flower> flowers){
+        if (flowers != null && flowers.size() != 0) {
+            String nameFormat = "| %1$-15s |";
+            String colorFormat = " %2$-10s |";
+            String recencyFormat = " %3$-10s |";
+            String stemFormat = " %4$-8s |";
+            String priceFormat = " %5$-8s |%n";
+            String format = nameFormat.concat(colorFormat).concat(recencyFormat).concat(stemFormat).concat(priceFormat);
+            String line = new String(new char[67]).replace('\0', '-');
 
-    public void printFlowers(ArrayList<Flower> flowers){
-        System.out.println("\n");
-        if (flowers.size() != 0) {
-            for (Flower flower : flowers) {
-                System.out.println(flower);
+            System.out.println(line);
+            System.out.printf("|%s|%s|%s|%s|%s|%n",
+                    StringUtils.center("Name", 17),
+                    StringUtils.center("Color", 12),
+                    StringUtils.center("Recency", 12),
+                    StringUtils.center("Stem", 10),
+                    StringUtils.center("Price", 10));
+            System.out.println(line);
+            for (Flower f : flowers) {
+                System.out.printf(format, f.getName(), f.getColor(), f.getRecency(), f.getStemLength(), f.getPrice());
             }
+            System.out.println(line);
         } else {
-            System.out.println("There aren't flowers.");
+            printMessage(BOUQUET_FLOWERS_EMPTY);
         }
+
     }
 
     public void printBouquetPrice(Bouquet bouquet){
-        System.out.println("\n" + bundle.getString(BOUQUET_PRICE) + bouquet.getBouquetPrice());
+        System.out.println(bundle.getString(BOUQUET_PRICE) + bouquet.getBouquetPrice());
+    }
+
+    public void printAccessories(ArrayList<Accessory> accessories){
+        if (accessories != null && accessories.size() != 0){
+            String nameFormat = "| %1$-15s |";
+            String priceFormat = " %2$-8s |%n";
+            String format = nameFormat.concat(priceFormat);
+            String line = new String(new char[30]).replace('\0', '-');
+
+            System.out.println(line);
+            System.out.printf("|%s|%s|%n",
+                    StringUtils.center("Name", 17),
+                    StringUtils.center("Price", 10));
+            System.out.println(line);
+            for (Accessory a : accessories) {
+                System.out.printf(format, a.getName(), a.getPrice());
+            }
+            System.out.println(line);
+        } else {
+            printMessage(BOUQUET_ACCESSORIES_EMPTY);
+        }
     }
 }

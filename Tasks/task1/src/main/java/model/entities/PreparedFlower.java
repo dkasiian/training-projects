@@ -2,13 +2,17 @@ package model.entities;
 
 import model.characteristics.Color;
 import model.characteristics.Recency;
+import model.flowers.*;
 
 import java.math.BigDecimal;
 
+import static model.characteristics.Color.*;
+import static model.characteristics.Recency.*;
+
 public enum PreparedFlower {
-    TULIP(Color.RED, Recency.RECENT, 8.5, BigDecimal.valueOf(12.5)),
-    LILY(Color.WHITE, Recency.RECENT, 10, BigDecimal.valueOf(10)),
-    CHRYSANTHEMUM(Color.BLUE, Recency.RECENT, 12, BigDecimal.valueOf(15.5));
+    CHRYSANTHEMUM(BLUE, NEW, 12, BigDecimal.valueOf(15.5)),
+    LILY(WHITE, RECENT, 10, BigDecimal.valueOf(10)),
+    TULIP(RED, FADED, 8.5, BigDecimal.valueOf(1.5));
 
     private final Color color;
     private final Recency recency;
@@ -22,19 +26,33 @@ public enum PreparedFlower {
         this.price = price;
     }
 
-    public Color getColor() {
-        return color;
+    public Flower getPreparedFlower(PreparedFlower flower){
+        switch (flower){
+            case CHRYSANTHEMUM:
+                return new Chrysanthemum(
+                        CHRYSANTHEMUM.color,
+                        CHRYSANTHEMUM.recency,
+                        CHRYSANTHEMUM.stemLength,
+                        CHRYSANTHEMUM.price);
+            case LILY:
+                return new Lily(
+                        LILY.color,
+                        LILY.recency,
+                        LILY.stemLength,
+                        LILY.price);
+            case TULIP:
+                return new Tulip(
+                        TULIP.color,
+                        TULIP.recency,
+                        TULIP.stemLength,
+                        TULIP.price);
+            default:
+                return new Lily(
+                        LILY.color,
+                        LILY.recency,
+                        LILY.stemLength,
+                        LILY.price);
+        }
     }
 
-    public Recency getRecency() {
-        return recency;
-    }
-
-    public double getStemLength() {
-        return stemLength;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
 }
