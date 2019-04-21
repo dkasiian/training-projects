@@ -26,4 +26,10 @@ public interface MessageConstants {
     String INPUT1_ADD_TAPE = "input.add.accessory.tape";
     String INPUT2_ADD_PACK = "input.add.accessory.packaging";
     String INPUT3_ADD_POT = "input.add.accessory.pot";
+
+    String OUTPUT_TABLE_NAME = "output.table.name";
+    String OUTPUT_TABLE_COLOR = "output.table.color";
+    String OUTPUT_TABLE_RECENCY = "output.table.recency";
+    String OUTPUT_TABLE_STEM = "output.table.stem";
+    String OUTPUT_TABLE_PRICE = "output.table.price";
 }

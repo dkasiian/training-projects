@@ -33,18 +33,18 @@ public class View {
             String nameFormat = "| %1$-15s |";
             String colorFormat = " %2$-10s |";
             String recencyFormat = " %3$-10s |";
-            String stemFormat = " %4$-8s |";
+            String stemFormat = " %4$-15s |";
             String priceFormat = " %5$-8s |%n";
             String format = nameFormat.concat(colorFormat).concat(recencyFormat).concat(stemFormat).concat(priceFormat);
-            String line = new String(new char[67]).replace('\0', '-');
+            String line = new String(new char[74]).replace('\0', '-');
 
             System.out.println(line);
             System.out.printf("|%s|%s|%s|%s|%s|%n",
-                    StringUtils.center("Name", 17),
-                    StringUtils.center("Color", 12),
-                    StringUtils.center("Recency", 12),
-                    StringUtils.center("Stem", 10),
-                    StringUtils.center("Price", 10));
+                    StringUtils.center(bundle.getString(OUTPUT_TABLE_NAME), 17),
+                    StringUtils.center(bundle.getString(OUTPUT_TABLE_COLOR), 12),
+                    StringUtils.center(bundle.getString(OUTPUT_TABLE_RECENCY), 12),
+                    StringUtils.center(bundle.getString(OUTPUT_TABLE_STEM), 17),
+                    StringUtils.center(bundle.getString(OUTPUT_TABLE_PRICE), 10));
             System.out.println(line);
             for (Flower f : flowers) {
                 System.out.printf(format, f.getName(), f.getColor(), f.getRecency(), f.getStemLength(), f.getPrice());
@@ -69,8 +69,8 @@ public class View {
 
             System.out.println(line);
             System.out.printf("|%s|%s|%n",
-                    StringUtils.center("Name", 17),
-                    StringUtils.center("Price", 10));
+                    StringUtils.center(bundle.getString(OUTPUT_TABLE_NAME), 17),
+                    StringUtils.center(bundle.getString(OUTPUT_TABLE_PRICE), 10));
             System.out.println(line);
             for (Accessory a : accessories) {
                 System.out.printf(format, a.getName(), a.getPrice());
