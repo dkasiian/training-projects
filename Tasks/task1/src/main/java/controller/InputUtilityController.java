@@ -12,6 +12,9 @@ import static model.entities.PreparedBouquet.*;
 import static model.entities.PreparedFlower.*;
 import static view.MessageConstants.*;
 
+/**
+ * The class provide utility methods for receiving the input, validation and creation Bouquet.
+ */
 public class InputUtilityController {
 
     private Scanner scanner;
@@ -22,6 +25,11 @@ public class InputUtilityController {
         this.view = view;
     }
 
+    /**
+     * Handles user input and creates a Bouquet object based on user input.
+     *
+     * @return the bouquet
+     */
     public Bouquet makeBouquet(){
         Bouquet bouquet = new Bouquet();
         boolean isRun = true;
@@ -66,6 +74,11 @@ public class InputUtilityController {
         return bouquet;
     }
 
+    /**
+     * Additional method to create a unique bouquet based on user input.
+     *
+     * @return the bouquet
+     */
     private Bouquet makeUniqueBouquet(){
         Bouquet bouquet = new Bouquet();
         boolean isRun = true;
@@ -99,6 +112,11 @@ public class InputUtilityController {
         return bouquet;
     }
 
+    /**
+     * Adds accessories to a bouquet based on user input.
+     *
+     * @param bouquet Bouquet object for which you want to add accessories
+     */
     private void addAccessories(Bouquet bouquet){
         boolean isRun = true;
         int choice;

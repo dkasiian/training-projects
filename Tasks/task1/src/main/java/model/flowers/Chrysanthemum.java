@@ -6,6 +6,9 @@ import model.characteristics.Recency;
 
 import java.math.BigDecimal;
 
+/**
+ * Concrete realisation that represent chrysanthemum flower.
+ */
 public class Chrysanthemum extends Flower {
 
     private final static String name = "Chrysanthemum";

@@ -5,14 +5,21 @@ import model.entities.PreparedFlower;
 
 import static model.entities.PreparedFlower.*;
 
+/**
+ * Responsible for flowers creating
+ */
 public class FlowerFactory {
 
+    /**
+     * Returns one of the ready-made (default) flowers
+     *
+     * @param flower flower name which will be created
+     * @return one of the Flower sub-classes
+     */
     public static Flower createDefaultFlower(PreparedFlower flower){
         switch (flower){
             case CHRYSANTHEMUM:
                 return flower.getPreparedFlower(CHRYSANTHEMUM);
-            case LILY:
-                return flower.getPreparedFlower(LILY);
             case TULIP:
                 return flower.getPreparedFlower(TULIP);
             default:

@@ -11,6 +11,9 @@ import java.util.ResourceBundle;
 
 import static view.MessageConstants.*;
 
+/**
+ * Represents the visualization of the data.
+ */
 public class View {
 
     static String MESSAGES_BUNDLE_NAME = "messages";
@@ -19,15 +22,30 @@ public class View {
             new Locale("ua", "UA"));   // Ukrainian
 //            new Locale("en"));        // English
 
+    /**
+     * Prints one message.
+     *
+     * @param message message to print
+     */
     public void printMessage(String message){
         System.out.println(bundle.getString(message));
     }
 
+    /**
+     * Prints several messages.
+     *
+     * @param messages messages to print
+     */
     public void printMessages(String ... messages){
         for (String message : messages)
             System.out.println(bundle.getString(message));
     }
 
+    /**
+     * Prints all bouquet flowers in a table form.
+     *
+     * @param flowers bouquet flowers
+     */
     public void printBouquetFlowers(ArrayList<Flower> flowers){
         if (flowers != null && flowers.size() != 0) {
             String nameFormat = "| %1$-15s |";
@@ -56,10 +74,20 @@ public class View {
 
     }
 
+    /**
+     * Prints bouquet price.
+     *
+     * @param bouquet bouquet for which the price will be displayed
+     */
     public void printBouquetPrice(Bouquet bouquet){
         System.out.println(bundle.getString(BOUQUET_PRICE) + bouquet.getBouquetPrice());
     }
 
+    /**
+     * Prints all bouquet accessories in a table form.
+     *
+     * @param accessories bouquet accessories
+     */
     public void printAccessories(ArrayList<Accessory> accessories){
         if (accessories != null && accessories.size() != 0){
             String nameFormat = "| %1$-15s |";

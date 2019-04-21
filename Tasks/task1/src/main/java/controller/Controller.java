@@ -10,6 +10,10 @@ import java.util.Scanner;
 import static view.MessageConstants.BOUQUET_SORT;
 import static view.MessageConstants.BOUQUET_STEM;
 
+/**
+ * Class that process all the business logic and incoming requests,
+ * manipulate data and interact with the view to render the final output.
+ */
 public class Controller {
 
     private View view;

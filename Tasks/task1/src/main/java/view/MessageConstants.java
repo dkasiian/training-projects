@@ -1,5 +1,8 @@
 package view;
 
+/**
+ * Stores message constants for internationalization an application
+ */
 public interface MessageConstants {
     String BOUQUET_PRICE = "bouquet.price";
     String BOUQUET_SORT = "bouquet.sort";

@@ -9,6 +9,9 @@ import java.math.BigDecimal;
 import static model.characteristics.Color.*;
 import static model.characteristics.Recency.*;
 
+/**
+ * Represents ready-made (default) flowers
+ */
 public enum PreparedFlower {
     CHRYSANTHEMUM(BLUE, NEW, 12, BigDecimal.valueOf(15.5)),
     LILY(WHITE, RECENT, 10, BigDecimal.valueOf(10)),
@@ -19,6 +22,14 @@ public enum PreparedFlower {
     private final double stemLength;
     private final BigDecimal price;
 
+    /**
+     * Initializes a ready-made flower.
+     *
+     * @param color flower color
+     * @param recency flower recency
+     * @param stemLength flower stem length
+     * @param price flower price
+     */
     PreparedFlower(Color color, Recency recency, double stemLength, BigDecimal price){
         this.color = color;
         this.recency = recency;
@@ -26,6 +37,12 @@ public enum PreparedFlower {
         this.price = price;
     }
 
+    /**
+     * Returns ready-made flower with default properties.
+     *
+     * @param flower flower name which will be created
+     * @return ready-made flower
+     */
     public Flower getPreparedFlower(PreparedFlower flower){
         switch (flower){
             case CHRYSANTHEMUM:
@@ -34,12 +51,6 @@ public enum PreparedFlower {
                         CHRYSANTHEMUM.recency,
                         CHRYSANTHEMUM.stemLength,
                         CHRYSANTHEMUM.price);
-            case LILY:
-                return new Lily(
-                        LILY.color,
-                        LILY.recency,
-                        LILY.stemLength,
-                        LILY.price);
             case TULIP:
                 return new Tulip(
                         TULIP.color,

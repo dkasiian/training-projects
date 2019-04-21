@@ -2,6 +2,9 @@ package model.characteristics;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents possible accessories for a bouquet.
+ */
 public enum Accessory {
     PACKAGING("Packaging", BigDecimal.valueOf(10)),
     TAPE("Tape", BigDecimal.valueOf(5)),
@@ -15,10 +18,20 @@ public enum Accessory {
         this.price = accessoryPrice;
     }
 
+    /**
+     * Returns the accessory name
+     *
+     * @return accessory name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns the accessory price
+     *
+     * @return accessory price
+     */
     public BigDecimal getPrice() {
         return price;
     }

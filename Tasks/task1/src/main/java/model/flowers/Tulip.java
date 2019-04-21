@@ -6,6 +6,9 @@ import model.characteristics.Recency;
 
 import java.math.BigDecimal;
 
+/**
+ * Concrete realisation that represent tulip flower.
+ */
 public class Tulip extends Flower {
     private final static String name = "Tulip";
 
