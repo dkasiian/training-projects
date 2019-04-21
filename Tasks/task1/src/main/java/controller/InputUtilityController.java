@@ -24,38 +24,44 @@ public class InputUtilityController {
 
     public Bouquet makeBouquet(){
         Bouquet bouquet = new Bouquet();
+        boolean isRun = true;
+        int choice;
 
-        view.printMessages(
-                INPUT_MAKE,
-                INPUT1_DEF_BOUQUET,
-                INPUT2_DEF_LILIES_BOUQUET,
-                INPUT3_DEF_TULIPS_BOUQUET,
-                INPUT4_DEF_CHRYSANT_BOUQUET,
-                INPUT5_UNIQUE_BOUQUET,
-                INPUT0_FINISH
-        );
-
-        int choice = scanner.nextInt();
-        switch (choice){
-            case 1:
-                bouquet = BouquetFactory.createDefaultBouquet(DEFAULT_BOUQUET);
-                addAccessories(bouquet); break;
-            case 2:
-                bouquet = BouquetFactory.createDefaultBouquet(LILY_BOUQUET);
-                addAccessories(bouquet); break;
-            case 3:
-                bouquet = BouquetFactory.createDefaultBouquet(TULIP_BOUQUET);
-                addAccessories(bouquet); break;
-            case 4:
-                bouquet = BouquetFactory.createDefaultBouquet(CHRYSANTHEMUM_BOUQUET);
-                addAccessories(bouquet); break;
-            case 5:
-                bouquet = makeUniqueBouquet();
-                addAccessories(bouquet); break;
-            case 0:
-                break;
-            default:
-                view.printMessage(INPUT_WRONG_CHOICE); break;
+        while (isRun) {
+            view.printMessages(
+                    INPUT_MAKE,
+                    INPUT1_DEF_BOUQUET,
+                    INPUT2_DEF_LILIES_BOUQUET,
+                    INPUT3_DEF_TULIPS_BOUQUET,
+                    INPUT4_DEF_CHRYSANT_BOUQUET,
+                    INPUT5_UNIQUE_BOUQUET,
+                    INPUT0_FINISH);
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                view.printMessage(INPUT_WRONG_CHOICE); continue;
+            }
+            switch (choice) {
+                case 1:
+                    bouquet = BouquetFactory.createDefaultBouquet(DEFAULT_BOUQUET);
+                    addAccessories(bouquet); break;
+                case 2:
+                    bouquet = BouquetFactory.createDefaultBouquet(LILY_BOUQUET);
+                    addAccessories(bouquet); break;
+                case 3:
+                    bouquet = BouquetFactory.createDefaultBouquet(TULIP_BOUQUET);
+                    addAccessories(bouquet); break;
+                case 4:
+                    bouquet = BouquetFactory.createDefaultBouquet(CHRYSANTHEMUM_BOUQUET);
+                    addAccessories(bouquet); break;
+                case 5:
+                    bouquet = makeUniqueBouquet();
+                    addAccessories(bouquet); break;
+                case 0: break;
+                default:
+                    view.printMessage(INPUT_WRONG_CHOICE); continue;
+            }
+            isRun = false;
         }
         return bouquet;
     }
@@ -63,6 +69,7 @@ public class InputUtilityController {
     private Bouquet makeUniqueBouquet(){
         Bouquet bouquet = new Bouquet();
         boolean isRun = true;
+        int choice;
 
         while (isRun){
             view.printMessages(
@@ -70,10 +77,12 @@ public class InputUtilityController {
                     INPUT1_ADD_LILY,
                     INPUT2_ADD_TULIP,
                     INPUT3_ADD_CHRYSANT,
-                    INPUT0_FINISH
-            );
-
-            int choice = scanner.nextInt();
+                    INPUT0_FINISH);
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                view.printMessage(INPUT_WRONG_CHOICE); continue;
+            }
             switch (choice){
                 case 1:
                     bouquet.addFlower(FlowerFactory.createDefaultFlower(LILY)); break;
@@ -84,7 +93,7 @@ public class InputUtilityController {
                 case 0:
                     isRun = false; break;
                 default:
-                    view.printMessage(INPUT_WRONG_CHOICE); break;
+                    view.printMessage(INPUT_WRONG_CHOICE); continue;
             }
         }
         return bouquet;
@@ -92,6 +101,7 @@ public class InputUtilityController {
 
     private void addAccessories(Bouquet bouquet){
         boolean isRun = true;
+        int choice;
 
         while (isRun){
             view.printMessages(
@@ -99,10 +109,12 @@ public class InputUtilityController {
                     INPUT1_ADD_TAPE,
                     INPUT2_ADD_PACK,
                     INPUT3_ADD_POT,
-                    INPUT0_FINISH
-            );
-
-            int choice = scanner.nextInt();
+                    INPUT0_FINISH);
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                view.printMessage(INPUT_WRONG_CHOICE); continue;
+            }
             switch (choice){
                 case 1:
                     bouquet.addAccessory(TAPE); break;
@@ -113,7 +125,7 @@ public class InputUtilityController {
                 case 0:
                     isRun = false; break;
                 default:
-                    view.printMessage(INPUT_WRONG_CHOICE); break;
+                    view.printMessage(INPUT_WRONG_CHOICE); continue;
             }
         }
     }

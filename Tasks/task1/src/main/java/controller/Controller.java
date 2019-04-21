@@ -10,7 +10,7 @@ import java.util.Scanner;
 import static view.MessageConstants.BOUQUET_SORT;
 import static view.MessageConstants.BOUQUET_STEM;
 
-public class    Controller {
+public class Controller {
 
     private View view;
 
@@ -22,7 +22,6 @@ public class    Controller {
         Scanner sc = new Scanner(System.in);
         InputUtilityController utilityController = new InputUtilityController(sc, view);
 
-//        utilityController.demo();
         Bouquet bouquet = utilityController.makeBouquet();
         view.printBouquetFlowers(bouquet.getFlowers());
         view.printAccessories(bouquet.getAccessories());
