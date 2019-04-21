@@ -1,4 +1,5 @@
 # Ignore next folders and files
+Practice/
 algs4-master/
 algs4-master.zip
 
@@ -26,7 +27,7 @@ hs_err_pid*
 
 # Build output directies
 build/
-/target
+target/
 
 ### Eclipse project file ###
 .metadata
@@ -48,10 +49,11 @@ tmp/
 *.iml
 *.iws
 *.ipr
+*.kotlin_module
 .idea
 out
 test-output
-target
+target/
 
 .idea_modules/
 
