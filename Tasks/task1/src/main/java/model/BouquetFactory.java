@@ -15,7 +15,7 @@ public class BouquetFactory {
      * @param flowers flowers to be added to the bouquet
      * @return bouquet of flowers
      */
-    public static Bouquet createBouquet(Flower ... flowers) {
+    private static Bouquet createBouquet(Flower ... flowers) {
         Bouquet bouquet = new Bouquet();
         for (Flower flower : flowers)
             bouquet.addFlower(flower);
