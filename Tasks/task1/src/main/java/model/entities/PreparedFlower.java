@@ -38,32 +38,39 @@ public enum PreparedFlower {
     }
 
     /**
-     * Returns ready-made flower with default properties.
+     * Returns flower color.
      *
-     * @param flower flower name which will be created
-     * @return ready-made flower
+     * @return flower color
      */
-    public Flower getPreparedFlower(PreparedFlower flower){
-        switch (flower){
-            case CHRYSANTHEMUM:
-                return new Chrysanthemum(
-                        CHRYSANTHEMUM.color,
-                        CHRYSANTHEMUM.recency,
-                        CHRYSANTHEMUM.stemLength,
-                        CHRYSANTHEMUM.price);
-            case TULIP:
-                return new Tulip(
-                        TULIP.color,
-                        TULIP.recency,
-                        TULIP.stemLength,
-                        TULIP.price);
-            default:
-                return new Lily(
-                        LILY.color,
-                        LILY.recency,
-                        LILY.stemLength,
-                        LILY.price);
-        }
+    public Color getColor() {
+        return color;
+    }
+
+    /**
+     * Returns flower recency.
+     *
+     * @return flower recency
+     */
+    public Recency getRecency() {
+        return recency;
+    }
+
+    /**
+     * Returns flower stem length.
+     *
+     * @return flower stem length
+     */
+    public double getStemLength() {
+        return stemLength;
+    }
+
+    /**
+     * Returns flower price.
+     *
+     * @return flower price
+     */
+    public BigDecimal getPrice() {
+        return price;
     }
 
 }

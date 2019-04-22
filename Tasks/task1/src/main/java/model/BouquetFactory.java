@@ -17,9 +17,8 @@ public class BouquetFactory {
      */
     public static Bouquet createBouquet(Flower ... flowers) {
         Bouquet bouquet = new Bouquet();
-        for (Flower flower : flowers) {
+        for (Flower flower : flowers)
             bouquet.addFlower(flower);
-        }
         return bouquet;
     }
 
@@ -30,36 +29,27 @@ public class BouquetFactory {
      * @return one of the default bouquets
      */
     public static Bouquet createDefaultBouquet(PreparedBouquet preparedBouquet) {
-        Bouquet bouquet = new Bouquet();
         switch (preparedBouquet){
-            case DEFAULT_BOUQUET:
-                bouquet = BouquetFactory.createBouquet(
-                        FlowerFactory.createDefaultFlower(LILY),
-                        FlowerFactory.createDefaultFlower(TULIP),
-                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM)
-                );
-                break;
-            case LILY_BOUQUET:
-                bouquet = BouquetFactory.createBouquet(
-                        FlowerFactory.createDefaultFlower(LILY),
-                        FlowerFactory.createDefaultFlower(LILY),
-                        FlowerFactory.createDefaultFlower(LILY)
-                );
-                break;
             case CHRYSANTHEMUM_BOUQUET:
-                bouquet = BouquetFactory.createBouquet(
+                return BouquetFactory.createBouquet(
                         FlowerFactory.createDefaultFlower(CHRYSANTHEMUM),
                         FlowerFactory.createDefaultFlower(CHRYSANTHEMUM),
-                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM)
-                );
-                break;
+                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM));
+            case LILY_BOUQUET:
+                return BouquetFactory.createBouquet(
+                        FlowerFactory.createDefaultFlower(LILY),
+                        FlowerFactory.createDefaultFlower(LILY),
+                        FlowerFactory.createDefaultFlower(LILY));
             case TULIP_BOUQUET:
-                bouquet = BouquetFactory.createBouquet(
+                return BouquetFactory.createBouquet(
                         FlowerFactory.createDefaultFlower(TULIP),
                         FlowerFactory.createDefaultFlower(TULIP),
-                        FlowerFactory.createDefaultFlower(TULIP)
-                );
+                        FlowerFactory.createDefaultFlower(TULIP));
+            default:
+                return BouquetFactory.createBouquet(
+                        FlowerFactory.createDefaultFlower(LILY),
+                        FlowerFactory.createDefaultFlower(TULIP),
+                        FlowerFactory.createDefaultFlower(CHRYSANTHEMUM));
         }
-        return bouquet;
     }
 }
