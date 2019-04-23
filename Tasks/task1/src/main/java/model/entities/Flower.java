@@ -4,13 +4,11 @@ import model.characteristics.Color;
 import model.characteristics.Recency;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.Period;
 
 /**
  * Class to represent the common flowers properties.
  */
-public abstract class Flower implements Comparable <Flower> {
+public abstract class Flower {
     private final String name;
     private final Color color;
     private final Recency recency;
@@ -75,20 +73,5 @@ public abstract class Flower implements Comparable <Flower> {
      */
     public BigDecimal getPrice() {
         return price;
-    }
-
-    /**
-     * Compares this object recency with the specified object recency for order.
-     *
-     * @param compareFlower flower to compare
-     * @return a negative integer, zero, or a positive integer as this object is
-     *         less than, equal to, or greater than the specified object.
-     */
-    @Override
-    public int compareTo(Flower compareFlower){
-        LocalDate compareRecency = compareFlower.getRecency().getDate();
-        LocalDate thisRecency = this.getRecency().getDate();
-        int diff = Period.between(thisRecency, compareRecency).getDays();
-        return diff;
     }
 }

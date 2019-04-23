@@ -5,6 +5,7 @@ import model.entities.*;
 import view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static view.MessageConstants.BOUQUET_SORT;
@@ -37,7 +38,7 @@ public class Controller {
         view.printBouquetFlowers(bouquet.getFlowers());
 
         view.printMessage(BOUQUET_STEM);
-        ArrayList<Flower> stemFlowers = bouquet.findFlowersWithStemLengthBetween(7, 10);
+        List<Flower> stemFlowers = bouquet.findFlowersWithStemLengthBetween(7, 10);
         view.printBouquetFlowers(stemFlowers);
     }
 }

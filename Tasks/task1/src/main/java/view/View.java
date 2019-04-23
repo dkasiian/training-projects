@@ -5,7 +5,7 @@ import model.entities.Bouquet;
 import model.entities.Flower;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -46,7 +46,7 @@ public class View {
      *
      * @param flowers bouquet flowers
      */
-    public void printBouquetFlowers(ArrayList<Flower> flowers){
+    public void printBouquetFlowers(List<Flower> flowers){
         if (flowers != null && flowers.size() != 0) {
             String nameFormat = "| %1$-15s |";
             String colorFormat = " %2$-10s |";
@@ -88,7 +88,7 @@ public class View {
      *
      * @param accessories bouquet accessories
      */
-    public void printAccessories(ArrayList<Accessory> accessories){
+    public void printAccessories(List<Accessory> accessories){
         if (accessories != null && accessories.size() != 0){
             String nameFormat = "| %1$-15s |";
             String priceFormat = " %2$-8s |%n";

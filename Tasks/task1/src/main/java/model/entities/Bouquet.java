@@ -3,14 +3,15 @@ package model.entities;
 import model.characteristics.Accessory;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Class to represent the bouquet.
  */
 public class Bouquet {
-    private ArrayList<Flower> flowers;
-    private ArrayList<Accessory> accessories;
+    private List<Flower> flowers;
+    private List<Accessory> accessories;
     private BigDecimal bouquetPrice;
 
     /**
@@ -27,7 +28,7 @@ public class Bouquet {
      *
      * @return list of bouquet's flowers
      */
-    public ArrayList<Flower> getFlowers() {
+    public List<Flower> getFlowers() {
         return flowers;
     }
 
@@ -36,7 +37,7 @@ public class Bouquet {
      *
      * @return list of bouquet's accessories
      */
-    public ArrayList<Accessory> getAccessories() {
+    public List<Accessory> getAccessories() {
         return accessories;
     }
 
@@ -73,15 +74,9 @@ public class Bouquet {
      * Sorts the flowers in the bouquet by their recency.
      */
     public void sortFlowersByRecency(){
-        for (int i = 0; i < flowers.size() - 1; i++){
-            for (int j = i + 1; j < flowers.size(); j++) {
-                if (flowers.get(i).compareTo(flowers.get(j)) > 0) {
-                    Flower temp = flowers.get(i);
-                    flowers.set(i, flowers.get(j));
-                    flowers.set(j, temp);
-                }
-            }
-        }
+        flowers = flowers.stream()
+                .sorted(Comparator.comparing(f -> f.getRecency()))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -91,13 +86,9 @@ public class Bouquet {
      * @param to maximum stem length
      * @return list of bouquet's flowers that correspond to the specified stem length ranges
      */
-    public ArrayList<Flower> findFlowersWithStemLengthBetween(double from, double to){
-        ArrayList<Flower> resultFlowers = new ArrayList<>();
-        for (Flower flower : this.flowers){
-            if (flower.getStemLength() >= from && flower.getStemLength() <= to){
-                resultFlowers.add(flower);
-            }
-        }
-        return resultFlowers;
+    public List<Flower> findFlowersWithStemLengthBetween(double from, double to){
+        return flowers.stream()
+                .filter(f -> f.getStemLength() >= from && f.getStemLength() <= to)
+                .collect(Collectors.toList());
     }
 }
