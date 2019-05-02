@@ -1,0 +1,20 @@
+package com.company;
+
+class ProxyImage implements Image {
+    private String file;
+    private RealImage image;
+
+    ProxyImage(String file) {
+        this.file = file;
+    }
+
+    @Override
+    public void display() {
+        if (image == null){
+            image = new RealImage(file);
+        }
+        image.display();
+    }
+
+
+}
