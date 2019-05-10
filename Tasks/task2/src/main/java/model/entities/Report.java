@@ -1,15 +1,13 @@
-package model;
+package model.entities;
 
-class Report {
+public class Report {
     private String speakerName;
     private String reportName;
-    private String tableOfContents;
     private String text;
 
-    Report(String speakerName, String reportName, String tableOfContents, String text) {
+    public Report(String speakerName, String reportName, String text) {
         this.speakerName = speakerName;
         this.reportName = reportName;
-        this.tableOfContents = tableOfContents;
         this.text = text;
     }
 
@@ -19,10 +17,6 @@ class Report {
 
     public String getReportName() {
         return reportName;
-    }
-
-    public String getTableOfContents() {
-        return tableOfContents;
     }
 
     public String getText() {

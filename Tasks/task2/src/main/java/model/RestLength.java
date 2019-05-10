@@ -1,6 +1,6 @@
 package model;
 
-enum RestLength {
+public enum RestLength {
     SHORT(10), LONG(30);
 
     private int minLength;
