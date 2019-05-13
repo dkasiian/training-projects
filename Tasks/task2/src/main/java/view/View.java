@@ -15,6 +15,10 @@ public class View {
 //            new Locale("ua", "UA"));   // Ukrainian
             new Locale("en"));        // English
 
+    public View(){
+
+    }
+
     /**
      * Prints one message.
      *

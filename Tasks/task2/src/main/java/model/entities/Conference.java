@@ -14,13 +14,12 @@ public class Conference {
         this.rests = rests;
         this.coffeeBreaks = coffeeBreaks;
     }
+
     public String getConferenceName() {
         return conferenceName;
     }
 
-    public List<Report> getReports() {
-        return reports;
-    }
+    public List<Report> getReports() { return reports; }
 
     public List<Rest> getRests() {
         return rests;
