@@ -111,11 +111,12 @@ FROM banners
 JOIN (SELECT banners.b_url FROM banners GROUP BY banners.b_url HAVING COUNT(*) > 1) AS b
 ON banners.b_url = b.b_url;
 
--- №18 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-SELECT banners.b_id, banners.b_url
-FROM banners
-WHERE banners.b_id IN (SELECT m2m_banners_pages.b_id FROM m2m_banners_pages WHERE m2m_banners_pages.p_id 
-	   IN (SELECT pages.p_id FROM pages WHERE pages.p_parent = 1));
+-- №18
+SELECT pages.p_name, banners.b_id, banners.b_url
+FROM pages 
+JOIN m2m_banners_pages ON pages.p_id = m2m_banners_pages.p_id
+JOIN banners ON m2m_banners_pages.b_id = banners.b_id
+WHERE pages.p_parent = (SELECT pages.p_id FROM pages WHERE p_name ='Юридическим лицам');
 
 -- №19
 SELECT banners.b_id, banners.b_url, (banners.b_click / banners.b_show) AS rate
@@ -159,7 +160,7 @@ SELECT banners.b_id, banners.b_url, banners.b_text
 FROM banners
 WHERE SUBSTRING(banners.b_url, 8) LIKE LOWER(banners.b_text);
 
--- №25 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-- №25 !!!!!!!!!
 SELECT banners.b_id
 FROM banners
 WHERE banners.b_click / banners.b_show = (SELECT MAX(banners.b_click / banners.b_show) FROM banners);
