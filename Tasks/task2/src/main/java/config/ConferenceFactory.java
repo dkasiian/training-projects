@@ -1,7 +1,7 @@
 package config;
 
 import model.entities.*;
-import repository.*;
+import model.repository.*;
 
 public class ConferenceFactory {
     public static Conference getConference(ConferenceDB conferenceDB){

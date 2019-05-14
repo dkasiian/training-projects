@@ -3,11 +3,8 @@ package controller;
 import model.entities.Conference;
 import model.entities.Report;
 import config.ConferenceFactory;
-import repository.ReportsDB;
-import service.CoffeeBreakChangeService;
-import service.InputService;
-import service.RestChangeService;
-import service.ReportChangeService;
+import model.repository.ReportsDB;
+import service.*;
 import view.View;
 
 import java.util.stream.IntStream;

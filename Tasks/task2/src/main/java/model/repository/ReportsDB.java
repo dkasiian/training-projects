@@ -1,4 +1,4 @@
-package repository;
+package model.repository;
 
 public enum ReportsDB {
     JAVA8("Alex", "Java 8", "Some text"),

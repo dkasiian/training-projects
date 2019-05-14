@@ -1,14 +1,8 @@
 package config;
 
 import controller.ConferenceController;
-import service.CoffeeBreakChangeService;
-import service.InputService;
-import service.RestChangeService;
-import service.ReportChangeService;
-import service.impl.CoffeeBreakChangeServiceImpl;
-import service.impl.InputServiceImpl;
-import service.impl.RestChangeServiceImpl;
-import service.impl.ReportChangeServiceImpl;
+import service.*;
+import service.impl.*;
 import view.View;
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package repository;
+package model.repository;
 
 import config.ConferenceFactory;
 import model.RestLength;

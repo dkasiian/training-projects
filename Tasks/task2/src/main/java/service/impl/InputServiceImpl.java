@@ -2,7 +2,7 @@ package service.impl;
 
 import config.ConferenceFactory;
 import model.entities.Conference;
-import repository.ConferenceDB;
+import model.repository.ConferenceDB;
 import service.InputService;
 import view.View;
 
