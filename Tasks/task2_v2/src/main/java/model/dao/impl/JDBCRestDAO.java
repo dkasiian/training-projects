@@ -1,7 +1,6 @@
 package model.dao.impl;
 
 import model.dao.RestDAO;
-import model.entity.Report;
 import model.entity.Rest;
 
 import java.sql.Connection;

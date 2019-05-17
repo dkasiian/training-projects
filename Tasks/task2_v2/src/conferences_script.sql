@@ -67,4 +67,12 @@
 -- group by conferences.id;
 
 
+-- select reports.id, reports.name, reports.duration
+-- from reports, conferences_reports
+-- where conferences_reports.conference_id = 1 AND conferences_reports.report_id = reports.id;
+
+select rests.id, rests.type, rests.duration, conferences_rests.rest_number
+from rests, conferences_rests
+where conferences_rests.conference_id = 1 AND conferences_rests.rest_id = rests.id;
+
 

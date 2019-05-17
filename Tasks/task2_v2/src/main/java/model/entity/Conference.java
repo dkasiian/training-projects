@@ -1,5 +1,6 @@
 package model.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Conference {
@@ -8,7 +9,9 @@ public class Conference {
 
     private List<Activity> activities;
 
-    public Conference(){}
+    public Conference(){
+        activities = new ArrayList<>();
+    }
 
     public Conference(int id, String name, List<Activity> activities) {
         this.id = id;
@@ -45,6 +48,7 @@ public class Conference {
         return "Conference{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", activities=" + activities.size() +
                 '}';
     }
 
