@@ -71,8 +71,12 @@
 -- from reports, conferences_reports
 -- where conferences_reports.conference_id = 1 AND conferences_reports.report_id = reports.id;
 
-select rests.id, rests.type, rests.duration, conferences_rests.rest_number
-from rests, conferences_rests
-where conferences_rests.conference_id = 1 AND conferences_rests.rest_id = rests.id;
+-- select rests.id, rests.type, rests.duration, conferences_rests.rest_number
+-- from rests, conferences_rests
+-- where conferences_rests.conference_id = 1 AND conferences_rests.rest_id = rests.id;
+
+select coffee_breaks.id, coffee_breaks.type, coffee_breaks.duration, conferences_coffeebreaks.coffeebreak_number
+from coffee_breaks, conferences_coffeebreaks
+where conferences_coffeebreaks.conference_id = 1 AND conferences_coffeebreaks.coffeebreak_id = coffee_breaks.id;
 
 

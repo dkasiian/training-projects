@@ -5,7 +5,6 @@ import model.entity.Rest;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
@@ -27,18 +26,10 @@ public class JDBCRestDAO implements RestDAO {
         try (Statement statement = connection.createStatement()){
             ResultSet rs = statement.executeQuery("select * from rests where rests.id = " + id);
             if (rs.next())
-                result = extractRestFromResultSet(rs);
+                result = JDBCUtility.extractRestFromResultSet(rs);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return result;
-    }
-
-    private Rest extractRestFromResultSet(ResultSet rs) throws SQLException {
-        Rest result = new Rest();
-        result.setId(rs.getInt("id"));
-        result.setType(rs.getString("type"));
-        result.setDuration(rs.getInt("duration"));
         return result;
     }
 

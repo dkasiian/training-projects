@@ -5,6 +5,7 @@ import model.dao.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class JDBCDaoFactory extends DAOFactory {
     @Override
@@ -28,11 +29,13 @@ public class JDBCDaoFactory extends DAOFactory {
     }
 
     private Connection getConnection(){
+        ResourceBundle bundle = ResourceBundle.getBundle("connection");
         try {
             return DriverManager.getConnection(
-                    "jdbc:mariadb://localhost:3306/task2_conferencedb",
-                    "root" ,
-                    "DKasiian27$root" );
+                    bundle.getString("db.conn.url"),
+                    bundle.getString("db.username"),
+                    bundle.getString("db.password")
+            );
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

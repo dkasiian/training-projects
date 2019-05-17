@@ -9,9 +9,7 @@ public class Conference {
 
     private List<Activity> activities;
 
-    public Conference(){
-        activities = new ArrayList<>();
-    }
+    public Conference(){ }
 
     public Conference(int id, String name, List<Activity> activities) {
         this.id = id;

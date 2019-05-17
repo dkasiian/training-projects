@@ -18,6 +18,7 @@ public class ConferenceController {
     public void process(){
         DAOFactory factory = DAOFactory.getInstance();
         ConferenceDAO conferenceDao = factory.createConferenceDao();
+
         MakeConferenceServiceImpl makeConferenceService = new MakeConferenceServiceImpl();
         ConferenceDurationServiceImpl conferenceDurationService = new ConferenceDurationServiceImpl();
         ReportsNumberServiceImpl reportsNumberService = new ReportsNumberServiceImpl();
