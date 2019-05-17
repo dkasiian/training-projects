@@ -13,7 +13,7 @@ public class ConferenceController {
     private MakeConferenceService makeConferenceService;
     private ConferenceDurationService conferenceDurationService;
     private ReportsNumberService reportsNumberService;
-    private RestsNumberService restsNumberServiceimpl;
+    private RestsNumberService restsNumberService;
     private CoffeeBreaksNumberService coffeeBreaksNumberService;
 
     public ConferenceController(View view,
@@ -26,7 +26,7 @@ public class ConferenceController {
         this.makeConferenceService = makeConferenceService;
         this.conferenceDurationService = conferenceDurationService;
         this.reportsNumberService = reportsNumberService;
-        this.restsNumberServiceimpl = restsNumberServiceimpl;
+        this.restsNumberService = restsNumberServiceimpl;
         this.coffeeBreaksNumberService = coffeeBreaksNumberService;
     }
 
@@ -39,7 +39,7 @@ public class ConferenceController {
         view.printConferenceInfo(conference);
         view.printIntResult(OUTPUT_CONFERENCE_DURATION, conferenceDurationService.conferenceDuration(conference));
         view.printIntResult(OUTPUT_REPORTS_NUMBER, reportsNumberService.getReportsNumber(conference));
-        view.printIntResult(OUTPUT_RESTS_NUMBER, restsNumberServiceimpl.getRestsNumber(conference));
+        view.printIntResult(OUTPUT_RESTS_NUMBER, restsNumberService.getRestsNumber(conference));
         view.printIntResult(OUTPUT_COFFEES_NUMBER, coffeeBreaksNumberService.getCoffeeBreaksNumber(conference));
 
         System.out.println();
@@ -48,7 +48,7 @@ public class ConferenceController {
         view.printConferenceInfo(conference);
         view.printIntResult(OUTPUT_CONFERENCE_DURATION, conferenceDurationService.conferenceDuration(conference));
         view.printIntResult(OUTPUT_REPORTS_NUMBER, reportsNumberService.getReportsNumber(conference));
-        view.printIntResult(OUTPUT_RESTS_NUMBER, restsNumberServiceimpl.getRestsNumber(conference));
+        view.printIntResult(OUTPUT_RESTS_NUMBER, restsNumberService.getRestsNumber(conference));
         view.printIntResult(OUTPUT_COFFEES_NUMBER, coffeeBreaksNumberService.getCoffeeBreaksNumber(conference));
     }
 }
