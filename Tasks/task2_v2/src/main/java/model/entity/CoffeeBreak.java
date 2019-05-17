@@ -39,7 +39,7 @@ public class CoffeeBreak implements Activity {
 
     @Override
     public String toString() {
-        return "Shop{" +
+        return "CoffeeBreak{" +
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", duration=" + duration +

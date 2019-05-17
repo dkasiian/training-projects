@@ -39,7 +39,7 @@ public class Report implements Activity {
 
     @Override
     public String toString() {
-        return "Shop{" +
+        return "Report{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", duration=" + duration +

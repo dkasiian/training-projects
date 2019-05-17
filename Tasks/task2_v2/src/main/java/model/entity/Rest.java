@@ -39,7 +39,7 @@ public class Rest implements Activity {
 
     @Override
     public String toString() {
-        return "Shop{" +
+        return "Rest{" +
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", duration=" + duration +

@@ -1,11 +1,22 @@
 package model.dao.impl;
 
 import model.dao.RestDAO;
+import model.entity.Report;
 import model.entity.Rest;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class JDBCRestDAO implements RestDAO {
+    private Connection connection;
+
+    JDBCRestDAO(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
     public void create(Rest entity) {
 
@@ -13,7 +24,23 @@ public class JDBCRestDAO implements RestDAO {
 
     @Override
     public Rest findById(int id) {
-        return null;
+        Rest result = new Rest();
+        try (Statement statement = connection.createStatement()){
+            ResultSet rs = statement.executeQuery("select * from rests where rests.id = " + id);
+            if (rs.next())
+                result = extractRestFromResultSet(rs);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    private Rest extractRestFromResultSet(ResultSet rs) throws SQLException {
+        Rest result = new Rest();
+        result.setId(rs.getInt("id"));
+        result.setType(rs.getString("type"));
+        result.setDuration(rs.getInt("duration"));
+        return result;
     }
 
     @Override
