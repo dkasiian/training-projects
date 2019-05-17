@@ -1,19 +1,16 @@
 package model.entity;
 
-import java.util.List;
-
-public class Conference {
+public class Report implements Activity {
     private int id;
     private String name;
+    private int duration;
 
-    private List<Activity> activities;
+    public Report(){}
 
-    public Conference(){}
-
-    public Conference(int id, String name, List<Activity> activities) {
+    public Report(int id, String name, int duration) {
         this.id = id;
         this.name = name;
-        this.activities = activities;
+        this.duration = duration;
     }
 
     public int getId() {
@@ -32,21 +29,20 @@ public class Conference {
         this.name = name;
     }
 
-    public List<Activity> getActivities() {
-        return activities;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setActivities(List<Activity> activities) {
-        this.activities = activities;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     @Override
     public String toString() {
-        return "Conference{" +
+        return "Shop{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", duration=" + duration +
                 '}';
     }
-
-
 }
