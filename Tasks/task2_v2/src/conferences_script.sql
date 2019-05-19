@@ -8,11 +8,11 @@
 -- insert into reports (name, duration) values('Java 11', 15);
 -- insert into reports (name, duration) values('Java 12', 20);
 
--- insert into rests (type, duration) values('short', 10);
--- insert into rests (type, duration) values('long', 20);
+-- insert into rests (name, duration) values('short', 10);
+-- insert into rests (name, duration) values('long', 20);
 
--- insert into coffee_breaks (type, duration) values('short', 15);
--- insert into coffee_breaks (type, duration) values('long', 25);
+-- insert into coffee_breaks (name, duration) values('short', 15);
+-- insert into coffee_breaks (name, duration) values('long', 25);
 
 -- insert into conferences_reports (conference_id, report_id) values(1, 1);
 -- insert into conferences_reports (conference_id, report_id) values(1, 2);
@@ -71,7 +71,7 @@
 -- from reports, conferences_reports
 -- where conferences_reports.conference_id = 1 AND conferences_reports.report_id = reports.id;
 
--- select rests.id, rests.type, rests.duration, conferences_rests.rest_number
+-- select rests.id, rests.name, rests.duration, conferences_rests.rest_number
 -- from rests, conferences_rests
 -- where conferences_rests.conference_id = 1 AND conferences_rests.rest_id = rests.id;
 

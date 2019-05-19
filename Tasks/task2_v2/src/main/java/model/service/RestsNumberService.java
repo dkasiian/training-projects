@@ -1,7 +1,10 @@
 package model.service;
 
 import model.entity.Conference;
+import model.entity.Rest;
 
-public interface RestsNumberService {
-    int getRestsNumber(Conference conference);
+public class RestsNumberService {
+    public int getRestsNumber(Conference conference){
+        return (int) conference.getActivities().stream().filter(activity -> activity instanceof Rest).count();
+    }
 }

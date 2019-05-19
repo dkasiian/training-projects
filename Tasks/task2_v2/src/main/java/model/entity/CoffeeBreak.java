@@ -2,14 +2,14 @@ package model.entity;
 
 public class CoffeeBreak implements Activity {
     private int id;
-    private String type;
+    private String name;
     private int duration;
 
     public CoffeeBreak(){}
 
-    public CoffeeBreak(int id, String type, int duration) {
+    public CoffeeBreak(int id, String name, int duration) {
         this.id = id;
-        this.type = type;
+        this.name = name;
         this.duration = duration;
     }
 
@@ -21,12 +21,12 @@ public class CoffeeBreak implements Activity {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String name) {
+        this.name = name;
     }
 
     public int getDuration() {
@@ -41,7 +41,7 @@ public class CoffeeBreak implements Activity {
     public String toString() {
         return "CoffeeBreak{" +
                 "id=" + id +
-                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
                 ", duration=" + duration +
                 '}';
     }

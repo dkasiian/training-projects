@@ -2,6 +2,7 @@ package controller;
 
 import model.dao.ConferenceDAO;
 import model.dao.DAOFactory;
+import model.dao.ReportDAO;
 import model.entity.Conference;
 import model.service.*;
 import view.View;
@@ -10,45 +11,41 @@ import static view.MessageConstants.*;
 
 public class ConferenceController {
     private View view;
-    private MakeConferenceService makeConferenceService;
-    private ConferenceDurationService conferenceDurationService;
-    private ReportsNumberService reportsNumberService;
-    private RestsNumberService restsNumberService;
-    private CoffeeBreaksNumberService coffeeBreaksNumberService;
 
-    public ConferenceController(View view,
-                                MakeConferenceService makeConferenceService,
-                                ConferenceDurationService conferenceDurationService,
-                                ReportsNumberService reportsNumberService,
-                                RestsNumberService restsNumberServiceimpl,
-                                CoffeeBreaksNumberService coffeeBreaksNumberService) {
+    public ConferenceController(View view){
         this.view = view;
-        this.makeConferenceService = makeConferenceService;
-        this.conferenceDurationService = conferenceDurationService;
-        this.reportsNumberService = reportsNumberService;
-        this.restsNumberService = restsNumberServiceimpl;
-        this.coffeeBreaksNumberService = coffeeBreaksNumberService;
     }
-
 
     public void process(){
         DAOFactory factory = DAOFactory.getInstance();
         ConferenceDAO conferenceDao = factory.createConferenceDao();
+        ReportDAO reportDAO = factory.createReportDao();
 
-        Conference conference = makeConferenceService.makeConference(conferenceDao,1);
+        Conference conference = ServiceFabric.getMakeConferenceService().makeConference(conferenceDao,1);
+        servicesCalls(conference);
+
+        ServiceFabric.getReportChangeService().reportChange(conference, reportDAO.findById(1), reportDAO.findById(4));
         view.printConferenceInfo(conference);
-        view.printIntResult(OUTPUT_CONFERENCE_DURATION, conferenceDurationService.conferenceDuration(conference));
-        view.printIntResult(OUTPUT_REPORTS_NUMBER, reportsNumberService.getReportsNumber(conference));
-        view.printIntResult(OUTPUT_RESTS_NUMBER, restsNumberService.getRestsNumber(conference));
-        view.printIntResult(OUTPUT_COFFEES_NUMBER, coffeeBreaksNumberService.getCoffeeBreaksNumber(conference));
 
+        conference = ServiceFabric.getMakeConferenceService().makeConference(conferenceDao,2);
+        servicesCalls(conference);
+    }
+
+    private void servicesCalls(Conference conference) {
         System.out.println();
-
-        conference = makeConferenceService.makeConference(conferenceDao,2);
         view.printConferenceInfo(conference);
-        view.printIntResult(OUTPUT_CONFERENCE_DURATION, conferenceDurationService.conferenceDuration(conference));
-        view.printIntResult(OUTPUT_REPORTS_NUMBER, reportsNumberService.getReportsNumber(conference));
-        view.printIntResult(OUTPUT_RESTS_NUMBER, restsNumberService.getRestsNumber(conference));
-        view.printIntResult(OUTPUT_COFFEES_NUMBER, coffeeBreaksNumberService.getCoffeeBreaksNumber(conference));
+        view.printIntResult(
+                OUTPUT_CONFERENCE_DURATION,
+                ServiceFabric.getConferenceDurationService().conferenceDuration(conference));
+        view.printIntResult(
+                OUTPUT_REPORTS_NUMBER,
+                ServiceFabric.getReportsNumberService().getReportsNumber(conference));
+        view.printIntResult(
+                OUTPUT_RESTS_NUMBER,
+                ServiceFabric.getRestsNumberService().getRestsNumber(conference));
+        view.printIntResult(
+                OUTPUT_COFFEES_NUMBER,
+                ServiceFabric.getCoffeeBreaksNumberService().getCoffeeBreaksNumber(conference));
+        System.out.println();
     }
 }

@@ -27,7 +27,7 @@ class JDBCUtility {
     static Rest extractRestFromResultSet(ResultSet rs) throws SQLException {
         Rest result = new Rest();
         result.setId(rs.getInt("id"));
-        result.setType(rs.getString("type"));
+        result.setName(rs.getString("type"));
         result.setDuration(rs.getInt("duration"));
         return result;
     }
